@@ -277,6 +277,15 @@ The php.ini file is located:
 
 Test PHP Processing on your Web Server
 
+Create folder:
+```
+mkdir /usr/local/var/www/php71/
+mkdir /usr/local/var/www/php71/public/
+
+mkdir /usr/local/var/www/php56/
+mkdir /usr/local/var/www/php56/public/
+```
+
 We can create the file at that location by typing:
 
 ```
