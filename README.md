@@ -238,7 +238,7 @@ $ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist
 Installing PHP 7.1 with php-fpm & some extensions:
 
 ```
-$ brew install php71 — with-fpm
+$ brew install php71
 $ brew install php71-mcrypt
 $ brew install php71-xdebug
 $ brew unlink php71
