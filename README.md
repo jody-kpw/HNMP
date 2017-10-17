@@ -256,6 +256,12 @@ Change to
 listen = 127.0.0.1:9071
 ```
 
+Setup auto start:
+
+```
+$ ln -sfv /usr/local/opt/php71/*.plist ~/Library/LaunchAgents
+```
+
 And to load php-fpm 7.1 now:
 
 ```
