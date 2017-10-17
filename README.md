@@ -109,7 +109,7 @@ adding sites put a specific server config, just place them into your sites-avail
 vi /usr/local/etc/nginx/sites-available/php56.conf
 ```
 
-Example PHP Ngnix Config:
+Example PHP56 Ngnix Config:
 
 ```
 		server {
@@ -161,7 +161,7 @@ Example PHP Ngnix Config:
 vi /usr/local/etc/nginx/sites-available/php71.conf
 ```
 
-Example PHP Ngnix Config:
+Example PHP71 Ngnix Config:
 
 ```
 		server {
