@@ -223,13 +223,15 @@ https://www.nginx.com/resources/wiki/start/#pre-canned-configurations
 Next to enable the site, create symlink to sites-enabled:
 
 ```
-sudo ln -s /usr/local/etc/nginx/sites-available/php.conf /usr/local/etc/nginx/sites-enabled/php.conf
+sudo ln -s /usr/local/etc/nginx/sites-available/php56.conf /usr/local/etc/nginx/sites-enabled/php56.conf
+sudo ln -s /usr/local/etc/nginx/sites-available/php71.conf /usr/local/etc/nginx/sites-enabled/php71.conf
 ```
 
 To disable the site you can simply delete the conf from sites-enabled folder.
 
 ```
-rm /usr/local/etc/nginx/sites-available/php.conf
+rm /usr/local/etc/nginx/sites-available/php56.conf
+rm /usr/local/etc/nginx/sites-available/php71.conf
 ```
 
 Finally you must register your servername to hosts file located in /private/etc/hosts
