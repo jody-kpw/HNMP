@@ -106,7 +106,7 @@ http {
 adding sites put a specific server config, just place them into your sites-available directory:
 
 ```
-vim /usr/local/etc/nginx/sites-available/php.conf
+vi /usr/local/etc/nginx/sites-available/php56.conf
 ```
 
 Example PHP Ngnix Config:
@@ -114,12 +114,64 @@ Example PHP Ngnix Config:
 ```
 		server {
 		        ## Your website name goes here.
-		        #server_name     php56.local.com;
-				server_name     php71.local.com;
+		        server_name     php56.local.com;
+			# server_name     php71.local.com;
 		        ## Listen Port
 		        listen          *:80;
 		        ## Your only path reference.
-		        #root /usr/local/var/www/php56/public;
+		        root /usr/local/var/www/php56/public;
+		        # root /usr/local/var/www/php71/public;
+		        ## This should be in your http block and if it is, it's not needed here.
+		        index index.php;
+
+		        location = /favicon.ico {
+		                log_not_found off;
+		                access_log off;
+		        }
+
+		        location = /robots.txt {
+		                allow all;
+		                log_not_found off;
+		                access_log off;
+		        }
+
+		        location / {
+		                # This is cool because no php is touched for static content.
+		                # include the "?$args" part so non-default permalinks doesn't break when using query string
+		                try_files $uri $uri/ /index.php?$args;
+		        }
+
+		        location ~ \.php$ {
+		                # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+		                include fastcgi.conf;
+		                fastcgi_intercept_errors on;
+		                fastcgi_pass   127.0.0.1:9056;
+		                # fastcgi_pass   127.0.0.1:9071;
+		        }
+
+		        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+		                expires max;
+		                log_not_found off;
+		        }
+		}
+```
+
+
+```
+vi /usr/local/etc/nginx/sites-available/php71.conf
+```
+
+Example PHP Ngnix Config:
+
+```
+		server {
+		        ## Your website name goes here.
+		        # server_name     php56.local.com;
+			server_name     php71.local.com;
+		        ## Listen Port
+		        listen          *:80;
+		        ## Your only path reference.
+		        # root /usr/local/var/www/php56/public;
 		        root /usr/local/var/www/php71/public;
 		        ## This should be in your http block and if it is, it's not needed here.
 		        index index.php;
