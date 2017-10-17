@@ -280,8 +280,8 @@ Test PHP Processing on your Web Server
 We can create the file at that location by typing:
 
 ```
-sudo vi /usr/local/var/www/php71/public
-sudo vi /usr/local/var/www/php56/public
+sudo vi /usr/local/var/www/php71/public/index.php
+sudo vi /usr/local/var/www/php56/public/index.php
 ```
 
 This will open a blank file. 
