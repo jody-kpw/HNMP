@@ -306,6 +306,11 @@ Run the following in your command-line:
 $ brew install mysql
 ```
 
+Start mysql now
+```
+brew services start mysql
+```
+
 By default MySQL server installs with no root password but locks it to localhost (so only local users can access it anyway)
 
 To secure our MySQL server, we need to change the root password, remove anonymous users and disable remote root logins:
